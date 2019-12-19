@@ -3,6 +3,7 @@ package com.carbon.now.eclipse.handlers;
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
+import org.eclipse.ui.handlers.HandlerUtil;
 
 import com.carbon.now.eclipse.entity.CarbonNowRequest;
 import com.carbon.now.eclipse.exception.CarbonNowException;
@@ -21,7 +22,8 @@ public class InvokeCarbonNowHandler extends AbstractHandler {
 		try {
 			invokeCarbonNowService.invokeCarbonNow(new CarbonNowRequest(getCodeInEditor()));
 		} catch (CarbonNowException e) {
-			if (CarbonNowExceptionHandler.handleException(e) == CarbonNowExceptionHandler.KEEP_THROW)
+			CarbonNowExceptionHandler exceptionHandler = new CarbonNowExceptionHandler(HandlerUtil.getActiveWorkbenchWindowChecked(event));
+			if (exceptionHandler.handleException(e) == CarbonNowExceptionHandler.KEEP_THROW)
 				throw new ExecutionException(e.getMessage());
 		}
 		return null;
