@@ -8,6 +8,7 @@ import com.carbon.now.eclipse.entity.CarbonNowRequest;
 import com.carbon.now.eclipse.exception.CarbonNowException;
 import com.carbon.now.eclipse.service.InvokeCarbonNowService;
 import com.carbon.now.eclipse.service.impl.InvokeCarbonNowServiceViaBrowserImpl;
+import com.carbon.now.eclipse.util.CarbonNowExceptionHandler;
 
 public class InvokeCarbonNowHandler extends AbstractHandler {
 	private String getCodeInEditor() {
@@ -20,7 +21,8 @@ public class InvokeCarbonNowHandler extends AbstractHandler {
 		try {
 			invokeCarbonNowService.invokeCarbonNow(new CarbonNowRequest(getCodeInEditor()));
 		} catch (CarbonNowException e) {
-			// ...
+			if (CarbonNowExceptionHandler.handleException(e) == CarbonNowExceptionHandler.KEEP_THROW)
+				throw new ExecutionException(e.getMessage());
 		}
 		return null;
 	}
