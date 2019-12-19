@@ -14,6 +14,7 @@ public class InvokeCarbonNowServiceViaBrowserImpl implements InvokeCarbonNowServ
 		StringBuilder argStrBuilder = new StringBuilder("?");
 		for (String key : args.keySet())
 			argStrBuilder.append(key + "=" + args.get(key) + "&");
+		argStrBuilder.deleteCharAt(argStrBuilder.length() - 1);
 		return argStrBuilder.toString();
 	}
 	

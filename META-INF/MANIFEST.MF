@@ -6,4 +6,6 @@ Bundle-Version: 0.1.1.alpha
 Bundle-Vendor: CARBON
 Automatic-Module-Name: com.carbon.now.eclipse
 Bundle-RequiredExecutionEnvironment: JavaSE-12
-Require-Bundle: org.eclipse.ui
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.jface.text;bundle-version="3.15.300",
+ org.eclipse.ui.workbench.texteditor;bundle-version="3.13.0"

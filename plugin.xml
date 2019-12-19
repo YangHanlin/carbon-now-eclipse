@@ -7,19 +7,40 @@
          point="org.eclipse.ui.commands">
       <category
             id="com.carbon.now.eclipse.commands.CarbonNowCategory"
-            name="&amp;Carbon">
+            name="Carbon">
       </category>
       <command
             categoryId="com.carbon.now.eclipse.commands.CarbonNowCategory"
             id="com.carbon.now.eclipse.InvokeCarbonNow"
-            name="&amp;Carbon...">
+            name="Carbon...">
       </command>
    </extension>
    <extension
+         id="com.carbon.now.eclipse.handlers"
          point="org.eclipse.ui.handlers">
       <handler
+            class="com.carbon.now.eclipse.handlers.InvokeCarbonNowHandler"
             commandId="com.carbon.now.eclipse.InvokeCarbonNow">
       </handler>
+   </extension>
+   <extension
+         id="com.carbon.now.eclipse.menus"
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               id="com.carbon.now.eclipse.menus."
+               label="Carbon">
+            <command
+                  commandId="com.carbon.now.eclipse.InvokeCarbonNow"
+                  id="com.carbon.now.eclipse.menus.InvokeCarbonNow"
+                  label="Carbon..."
+                  mnemonic="C"
+                  style="push">
+            </command>
+         </menu>
+      </menuContribution>
    </extension>
 
 </plugin>
