@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.4"?>
 <plugin>
+   <extension
+         id="com.carbon.now.eclipse.commands"
+         name="CarbonNowCommands"
+         point="org.eclipse.ui.commands">
+      <category
+            id="com.carbon.now.eclipse.commands.CarbonNowCategory"
+            name="&amp;Carbon">
+      </category>
+      <command
+            categoryId="com.carbon.now.eclipse.commands.CarbonNowCategory"
+            id="com.carbon.now.eclipse.InvokeCarbonNow"
+            name="&amp;Carbon...">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            commandId="com.carbon.now.eclipse.InvokeCarbonNow">
+      </handler>
+   </extension>
 
 </plugin>

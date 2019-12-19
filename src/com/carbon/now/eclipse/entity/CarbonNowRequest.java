@@ -8,6 +8,10 @@ public class CarbonNowRequest {
 	
 	private String code;
 	
+	public CarbonNowRequest(String code) {
+		this.code = code;
+	}
+	
 	public String getCode() {
 		return code;
 	}

@@ -1,8 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: CarbonNow
-Bundle-SymbolicName: com.carbon.now.eclipse
+Bundle-SymbolicName: com.carbon.now.eclipse;singleton:=true
 Bundle-Version: 0.1.1.alpha
 Bundle-Vendor: CARBON
 Automatic-Module-Name: com.carbon.now.eclipse
 Bundle-RequiredExecutionEnvironment: JavaSE-12
+Require-Bundle: org.eclipse.ui

@@ -3,9 +3,11 @@ package com.carbon.now.eclipse.service.impl;
 import java.util.Map;
 
 import com.carbon.now.eclipse.entity.CarbonNowRequest;
+import com.carbon.now.eclipse.exception.CarbonNowException;
 import com.carbon.now.eclipse.service.InvokeCarbonNowService;
+import com.carbon.now.eclipse.service.WebBrowserService;
 
-public class InvokeCarbonNowServiceImpl implements InvokeCarbonNowService {
+public class InvokeCarbonNowServiceViaBrowserImpl implements InvokeCarbonNowService {
 	static private final String carbonNowUrl = "https://carbon.now.sh/";
 	
 	static private String toArgStr(Map<String, String> args) {
@@ -16,8 +18,8 @@ public class InvokeCarbonNowServiceImpl implements InvokeCarbonNowService {
 	}
 	
 	@Override
-	public void invokeCarbonNowWebsite(CarbonNowRequest request) {
-		WebBrowserService webBrowserService = new WebBrowserService();
-		webBrowserService.openUrl(carbonNowUrl + toArgStr(request.toArgs()));
+	public void invokeCarbonNow(CarbonNowRequest request) throws CarbonNowException {
+		WebBrowserService webBrowserService = new WebBrowserServiceImpl();
+		webBrowserService.openBrowserByUrl(carbonNowUrl + toArgStr(request.toArgs()));
 	}
 }
