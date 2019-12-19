@@ -30,16 +30,29 @@
             allPopups="false"
             locationURI="menu:org.eclipse.ui.main.menu?after=additions">
          <menu
-               id="com.carbon.now.eclipse.menus."
+               id="com.carbon.now.eclipse.menus.CarbonMenu"
                label="Carbon">
             <command
                   commandId="com.carbon.now.eclipse.InvokeCarbonNow"
-                  id="com.carbon.now.eclipse.menus.InvokeCarbonNow"
+                  id="com.carbon.now.eclipse.menus.CarbonNowMenu.InvokeCarbonNow"
                   label="Carbon..."
                   mnemonic="C"
                   style="push">
             </command>
          </menu>
+      </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="com.carbon.now.eclipse.menus.CarbonNowToolbar">
+            <command
+                  commandId="com.carbon.now.eclipse.InvokeCarbonNow"
+                  icon="icons/carbon-now.ico"
+                  id="com.carbon.now.eclipse.menus.CarbonNowToolbar.InvokeCarbonNow"
+                  style="push">
+            </command>
+         </toolbar>
       </menuContribution>
    </extension>
 
